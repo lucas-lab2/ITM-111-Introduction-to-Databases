@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive SQL Tutorial (Guided)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Learn SQL Interactively</h1>
+            <p class="mt-4 text-lg text-slate-600">A practical, guided tutorial for database beginners with MySQL</p>
+        </header>
+
+        <!-- Main Section with Tabs and Terminal -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Content Column (Tabs) -->
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-2xl font-bold mb-4">Quick Command Reference</h3>
+                <p class="text-slate-600 mb-4">Use the tabs below as a quick reference. The full tutorial happens in the terminal next to it.</p>
+                <div id="tabs-container" class="border-b border-gray-200 mb-4">
+                    <nav class="flex flex-wrap -mb-px">
+                        <button id="tab-btn-concepts" class="tab-button active">Concepts</button>
+                        <button id="tab-btn-select" class="tab-button">SELECT</button>
+                        <button id="tab-btn-where" class="tab-button">WHERE</button>
+                        <button id="tab-btn-dml" class="tab-button">INSERT, UPDATE, DELETE</button>
+                        <button id="tab-btn-ddl" class="tab-button">CREATE TABLE</button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="tab-content" class="text-slate-700 space-y-4">
+                    <div id="concepts" class="tab-panel">
+                        <h4 class="text-xl font-semibold mb-2">What is a Database?</h4>
+                        <p>A database is an organized collection of data. In a relational database like MySQL, data is stored in tables.</p>
+                        <p class="mt-2">A <strong>table</strong> is like a spreadsheet, with <strong>columns</strong> (which define the data types, like 'name' or 'age') and <strong>rows</strong> (which represent individual records).</p>
+                        <p class="mt-4">Our example database is named <strong>`school`</strong> and has a table called <strong>`students`</strong>.</p>
+                    </div>
+                    <div id="select" class="tab-panel hidden">
+                        <h4 class="text-xl font-semibold mb-2">`SELECT` Command</h4>
+                        <p>The `SELECT` command is used to fetch data from a table.</p>
+                        <div class="code-block">SELECT * FROM students;</div>
+                        <div class="code-block mt-2">SELECT name, email FROM students;</div>
+                    </div>
+                    <div id="where" class="tab-panel hidden">
+                        <h4 class="text-xl font-semibold mb-2">`WHERE` Clause</h4>
+                        <p>The `WHERE` clause is used to filter records.</p>
+                        <div class="code-block">SELECT * FROM students WHERE age > 20;</div>
+                    </div>
+                    <div id="dml" class="tab-panel hidden">
+                        <h4 class="text-xl font-semibold mb-2">Manipulating Data (DML)</h4>
+                        <p><strong>`INSERT INTO`</strong>: Adds a new row.</p>
+                        <div class="code-block">INSERT INTO students (name, email, age) VALUES ('Carlos Lima', 'carlos@email.com', 23);</div>
+                    </div>
+                     <div id="ddl" class="tab-panel hidden">
+                        <h4 class="text-xl font-semibold mb-2">Creating Tables (DDL)</h4>
+                        <p><strong>`CREATE TABLE`</strong> creates a new table.</p>
+                        <div class="code-block">CREATE TABLE courses (id INT, course_name VARCHAR(100));</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Terminal Column -->
+            <div class="bg-slate-900 rounded-xl shadow-md flex flex-col h-[700px] lg:h-auto">
+                <div class="p-4 border-b border-slate-700">
+                    <h3 class="text-2xl font-bold text-white">Guided SQL Terminal</h3>
+                    <p class="text-slate-400 text-sm">Follow the instructions to learn SQL step-by-step.</p>
+                </div>
+                <div id="terminal-output" class="terminal p-4 text-white text-sm overflow-y-auto flex-grow">
+                    <!-- The tutorial will be loaded here -->
+                </div>
+                <div class="p-2 border-t border-slate-700 flex items-center">
+                    <span class="terminal text-green-400 pl-2 pr-1">&gt;</span>
+                    <input type="text" id="sql-input" class="terminal w-full bg-transparent text-white focus:outline-none" placeholder="Type your command and press Enter...">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Custom Script -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
