@@ -57,7 +57,7 @@ Each weekly folder may contain:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/itm-111-introduction-to-databases.git
+   git clone https://github.com/your-username/itm-111-introduction-to-databases.git](https://github.com/lucas-lab2/ITM-111-Introduction-to-Databases.git
    ```
 
 2. **Set up your database environment**
